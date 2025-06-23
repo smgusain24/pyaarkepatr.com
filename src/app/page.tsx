@@ -5,7 +5,6 @@ import * as THREE from 'three'
 import { Canvas, useFrame } from '@react-three/fiber'
 
 import { motion, AnimatePresence } from 'framer-motion'
-import LogoAssembly from './LogoAssembly'
 
 // Animated background spheres
 
