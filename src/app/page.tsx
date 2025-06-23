@@ -186,11 +186,26 @@ export default function ComingSoon() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.5 }}
           className="text-5xl sm:text-6xl md:text-8xl font-bold mb-6 tracking-tight"
+          style={{
+            fontFamily: 'Sahitya, serif',
+            background: 'linear-gradient(90deg, #FFD700, #FFA500, #FF4500)',
+            backgroundClip: 'text',
+            WebkitBackgroundClip: 'text',
+            color: 'transparent',
+            WebkitTextFillColor: 'transparent',
+            textShadow: '0 0 15px rgba(255,165,0,0.4)',
+            lineHeight: '1.2',
+            paddingTop: '0.5em',
+            paddingBottom: '0.5em',
+            overflow: 'visible'
+          }}
         >
-          <span className="block bg-gradient-to-r from-[#FFD700] via-[#FFA500] to-[#FF4500] bg-clip-text text-transparent">
-            Coming&nbsp;Soon
-          </span>
+          Coming&nbsp;Soon
         </motion.h1>
+
+
+
+
 
         {/* Subtitle */}
         <motion.p
@@ -198,9 +213,13 @@ export default function ComingSoon() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
           className="text-xl md:text-2xl text-white/80 mb-12 max-w-2xl leading-relaxed"
+          style={{
+            fontFamily: 'Maragsa, sans-serif'
+          }}
         >
           Custom Invitations & Elegant Designs for Every Occasion
         </motion.p>
+
         {/* Email signup */}
         <NewsLetterSubscribe />
 
@@ -219,7 +238,7 @@ export default function ComingSoon() {
             aria-label="Email"
           >
             <img
-              src="/icons/mail.svg" 
+              src="/icons/mail.svg"
               alt="Email"
               className="w-6 h-6 object-contain text-white"
             />
@@ -227,7 +246,7 @@ export default function ComingSoon() {
 
           {/* Instagram */}
           <motion.a
-            href="https://instagram.com/pyaarkepatr" 
+            href="https://instagram.com/pyaarkepatr"
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ scale: 1.1, y: -2 }}
@@ -236,7 +255,7 @@ export default function ComingSoon() {
             aria-label="Instagram"
           >
             <img
-              src="/icons/instagram.svg" 
+              src="/icons/instagram.svg"
               alt="Instagram"
               className="w-6 h-6 object-contain text-white"
             />
