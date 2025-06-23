@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState, useMemo } from 'react'
 import * as THREE from 'three'
 import { Canvas, useFrame } from '@react-three/fiber'
 import { Text, Float, Sphere, MeshDistortMaterial } from '@react-three/drei'
@@ -39,13 +39,15 @@ function Particles() {
   const pointsRef = useRef<THREE.Points>(null)
   const particleCount = 150
 
-  const positions = new Float32Array(particleCount * 3)
-
-  for (let i = 0; i < particleCount; i++) {
-    positions[i * 3] = (Math.random() - 0.5) * 20
-    positions[i * 3 + 1] = (Math.random() - 0.5) * 20
-    positions[i * 3 + 2] = (Math.random() - 0.5) * 20
-  }
+  const positions = useMemo(() => {
+    const arr = new Float32Array(particleCount * 3)
+    for (let i = 0; i < particleCount; i++) {
+      arr[i * 3] = (Math.random() - 0.5) * 20
+      arr[i * 3 + 1] = (Math.random() - 0.5) * 20
+      arr[i * 3 + 2] = (Math.random() - 0.5) * 20
+    }
+    return arr
+  }, [particleCount])
 
   useFrame((state) => {
     if (pointsRef.current) {
