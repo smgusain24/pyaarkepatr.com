@@ -3,36 +3,10 @@
 import { useEffect, useRef, useState, useMemo } from 'react'
 import * as THREE from 'three'
 import { Canvas, useFrame } from '@react-three/fiber'
-import { Text, Float, Sphere, MeshDistortMaterial } from '@react-three/drei'
+
 import { motion, AnimatePresence } from 'framer-motion'
 
 // Animated background spheres
-function AnimatedSphere({ position, color, speed = 1 }: { position: [number, number, number], color: string, speed?: number }) {
-  const meshRef = useRef<THREE.Mesh>(null)
-
-  useFrame((state) => {
-    if (meshRef.current) {
-      meshRef.current.rotation.x = Math.sin(state.clock.elapsedTime * speed) * 0.2
-      meshRef.current.rotation.y = Math.sin(state.clock.elapsedTime * speed * 0.8) * 0.3
-      meshRef.current.position.y = position[1] + Math.sin(state.clock.elapsedTime * speed * 0.5) * 0.5
-    }
-  })
-
-  return (
-    <Float speed={speed} rotationIntensity={0.3} floatIntensity={0.3}>
-      <Sphere ref={meshRef} position={position} args={[1, 32, 32]}>
-        <MeshDistortMaterial
-          color={color}
-          transparent
-          opacity={0.6}
-          distort={0.3}
-          speed={2}
-          roughness={0.2}
-        />
-      </Sphere>
-    </Float>
-  )
-}
 
 // Particle system
 function Particles() {
@@ -59,11 +33,11 @@ function Particles() {
   return (
     <points ref={pointsRef}>
       <bufferGeometry>
+        {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
+        {/* @ts-ignore */}
         <bufferAttribute
           attach="attributes-position"
-          count={particleCount}
-          array={positions}
-          itemSize={3}
+          args={[positions, 3]}
         />
       </bufferGeometry>
       <pointsMaterial size={0.02} color="#ffffff" transparent opacity={0.8} />
@@ -128,7 +102,7 @@ function NewsLetterSubscribe() {
               type="submit"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-full font-semibold hover:from-purple-600 hover:to-pink-600 transition-all duration-300 shadow-lg hover:shadow-xl whitespace-nowrap"
+              className="px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-[#E61F93] to-[#101D6B] text-white rounded-full font-semibold hover:opacity-90 transition-all duration-300 shadow-lg hover:shadow-xl whitespace-nowrap"
             >
               Subscribe
             </motion.button>
@@ -141,7 +115,7 @@ function NewsLetterSubscribe() {
             className="text-center"
           >
             <div className="text-2xl mb-2">✨</div>
-            <p className="text-white/90">Thanks! We'll keep you updated.</p>
+            <p className="text-white/90">Thanks! We&apos;ll keep you updated.</p>
           </motion.div>
         )}
       </AnimatePresence>
@@ -160,14 +134,14 @@ export default function ComingSoon() {
 
   if (!mounted) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-br from-[#050A30] via-[#101D6B] to-[#E61F93] flex items-center justify-center">
         <div className="text-white text-xl">Loading...</div>
       </div>
     )
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-[#050A30] via-[#101D6B] to-[#E61F93] relative overflow-hidden">
       {/* 3D Background */}
       <div className="absolute inset-0">
         <Canvas camera={{ position: [0, 0, 10], fov: 60 }}>
@@ -197,10 +171,10 @@ export default function ComingSoon() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.5 }}
-          className="text-6xl md:text-8xl font-bold text-white mb-6 tracking-tight"
+          className="text-5xl sm:text-6xl md:text-8xl font-bold text-white mb-6 tracking-tight"
         >
           Coming
-          <span className="block bg-gradient-to-r from-purple-400 via-pink-400 to-indigo-400 bg-clip-text text-transparent">
+          <span className="block bg-gradient-to-r from-[#E61F93] via-[#101D6B] to-[#050A30] bg-clip-text text-transparent">
             Soon
           </span>
         </motion.h1>
