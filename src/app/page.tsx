@@ -5,6 +5,7 @@ import * as THREE from 'three'
 import { Canvas, useFrame } from '@react-three/fiber'
 
 import { motion, AnimatePresence } from 'framer-motion'
+import LogoAssembly from './LogoAssembly'
 
 // Animated background spheres
 
@@ -170,15 +171,18 @@ export default function ComingSoon() {
       <div className="relative z-10 min-h-screen flex flex-col items-center justify-center px-4 text-center">
         {/* Logo placeholder */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, delay: 0.2 }}
-          className="mb-8"
+          initial={{ opacity: 0, scale: 0.6, rotate: -10 }}
+          animate={{ opacity: 1, scale: 1, rotate: 0 }}
+          transition={{ duration: 1.2, delay: 0.2, ease: 'easeOut' }}
+          className="mb-8 w-44 h-44 sm:w-56 sm:h-56 flex items-center justify-center"
         >
-          <div className="w-24 h-24 bg-gradient-to-br from-white/20 to-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center border border-white/20">
-            <span className="text-4xl font-bold text-white">P</span>
-          </div>
+          <img
+            src="/logo/pkp.svg"
+            alt="Pyaar Ke Patr Logo"
+            className="w-full h-full object-contain"
+          />
         </motion.div>
+
 
         {/* Main heading */}
         <motion.h1
