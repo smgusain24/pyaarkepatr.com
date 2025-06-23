@@ -171,9 +171,15 @@ export default function ComingSoon() {
       <div className="relative z-10 min-h-screen flex flex-col items-center justify-center px-4 text-center">
         {/* Logo placeholder */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.6, rotate: -10 }}
-          animate={{ opacity: 1, scale: 1, rotate: 0 }}
-          transition={{ duration: 1.2, delay: 0.2, ease: 'easeOut' }}
+          initial={{ opacity: 0, scale: 0.7, y: -20, rotate: -5 }}
+          animate={{ opacity: 1, scale: 1, y: 0, rotate: 0 }}
+          transition={{
+            type: 'spring',
+            stiffness: 120,
+            damping: 12,
+            mass: 0.8,
+            delay: 0.2
+          }}
           className="mb-8 w-44 h-44 sm:w-56 sm:h-56 flex items-center justify-center"
         >
           <img
@@ -184,11 +190,16 @@ export default function ComingSoon() {
         </motion.div>
 
 
+
         {/* Main heading */}
         <motion.h1
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.5 }}
+          transition={{
+            duration: 0.8,
+            ease: [0.23, 1, 0.32, 1], // cubic-bezier for bounce-in
+            delay: 0.4
+          }}
           className="text-5xl sm:text-6xl md:text-8xl font-bold mb-6 tracking-tight"
           style={{
             fontFamily: 'Sahitya, serif',
@@ -206,9 +217,6 @@ export default function ComingSoon() {
         >
           Coming&nbsp;Soon
         </motion.h1>
-
-
-
 
 
         {/* Subtitle */}
