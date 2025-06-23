@@ -102,7 +102,7 @@ function NewsLetterSubscribe() {
               type="submit"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-[#E61F93] to-[#101D6B] text-white rounded-full font-semibold hover:opacity-90 transition-all duration-300 shadow-lg hover:shadow-xl whitespace-nowrap"
+              className="px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-[#FFD700] to-[#FF8C00] text-gray-900 rounded-full font-semibold hover:opacity-90 transition-all duration-300 shadow-lg hover:shadow-xl whitespace-nowrap"
             >
               Subscribe
             </motion.button>
@@ -134,14 +134,28 @@ export default function ComingSoon() {
 
   if (!mounted) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-[#050A30] via-[#101D6B] to-[#E61F93] flex items-center justify-center">
+      <div
+        className="min-h-screen flex items-center justify-center"
+        style={{
+          background:
+            'linear-gradient(135deg, #060B3D 0%, #13228A 35%, #812FA0 70%, #E61F93 100%)',
+          boxShadow: '0 0 40px #E61F93, 0 0 20px #13228A inset',
+        }}
+      >
         <div className="text-white text-xl">Loading...</div>
       </div>
     )
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#050A30] via-[#101D6B] to-[#E61F93] relative overflow-hidden">
+    <div
+      className="min-h-screen relative overflow-hidden"
+      style={{
+        background:
+          'linear-gradient(135deg, #060B3D 0%, #13228A 35%, #812FA0 70%, #E61F93 100%)',
+        boxShadow: '0 0 40px #E61F93, 0 0 20px #13228A inset',
+      }}
+    >
       {/* 3D Background */}
       <div className="absolute inset-0">
         <Canvas camera={{ position: [0, 0, 10], fov: 60 }}>
@@ -171,11 +185,10 @@ export default function ComingSoon() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.5 }}
-          className="text-5xl sm:text-6xl md:text-8xl font-bold text-white mb-6 tracking-tight"
+          className="text-5xl sm:text-6xl md:text-8xl font-bold mb-6 tracking-tight"
         >
-          Coming
-          <span className="block bg-gradient-to-r from-[#E61F93] via-[#101D6B] to-[#050A30] bg-clip-text text-transparent">
-            Soon
+          <span className="block bg-gradient-to-r from-[#FFD700] via-[#FFA500] to-[#FF4500] bg-clip-text text-transparent">
+            Coming&nbsp;Soon
           </span>
         </motion.h1>
 
