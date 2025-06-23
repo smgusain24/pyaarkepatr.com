@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState, useMemo } from 'react'
 import * as THREE from 'three'
 import { Canvas, useFrame } from '@react-three/fiber'
-import { Text, Float, Sphere, MeshDistortMaterial } from '@react-three/drei'
+import { Float, Sphere, MeshDistortMaterial } from '@react-three/drei'
 import { motion, AnimatePresence } from 'framer-motion'
 
 // Animated background spheres
