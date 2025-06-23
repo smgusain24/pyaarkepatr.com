@@ -4,7 +4,7 @@ import { useEffect, useRef, useState, useMemo } from 'react'
 import * as THREE from 'three'
 import { Canvas, useFrame } from '@react-three/fiber'
 
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
 import NewsLetterSubscribe from './NewsLetterSubscribe'
 
 // Animated background spheres
