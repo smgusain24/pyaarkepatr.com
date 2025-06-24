@@ -12,6 +12,12 @@ export default function NewsLetterSubscribe() {
     e.preventDefault()
     setError(null)
 
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    if (!emailPattern.test(email)) {
+      setError('Invalid email address.')
+      return
+    }
+
     try {
       const res = await fetch('https://api.pyaarkepatr.com/subscribe', {
         method: 'POST',
@@ -22,10 +28,7 @@ export default function NewsLetterSubscribe() {
       if (!res.ok) throw new Error('Failed to subscribe')
       
       setIsSubmitted(true)
-      setTimeout(() => {
-        setIsSubmitted(false)
-        setEmail('')
-      }, 3000)
+      setEmail('')
     } catch (err) {
       console.error(err)
       setError('Subscription failed. Please try again.')
@@ -55,7 +58,7 @@ export default function NewsLetterSubscribe() {
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Enter your email"
               required
-              className="flex-1 px-6 py-3 sm:py-4 bg-white/10 backdrop-blur-md border border-white/20 rounded-full text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white/50 transition-all duration-300"
+              className="flex-1 px-6 py-3 sm:py-4 bg-white/10 backdrop-blur-md border border-white/20 rounded-full text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white/50 transition-all duration-300 text-center placeholder:text-center"
             />
             <motion.button
               type="submit"
