@@ -174,7 +174,7 @@ export default function ComingSoon() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 2, duration: 0.8 }}
-          className="mt-16 flex space-x-6"
+          className="mt-16 mb-20 flex space-x-6"
         >
           {/* Mail */}
           <motion.a
