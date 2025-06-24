@@ -84,13 +84,33 @@ export default function ComingSoon() {
 
   return (
     <div
+
       className="min-h-screen relative overflow-hidden"
       style={{
-        background:
-          'linear-gradient(135deg, #060B3D 0%, #13228A 35%, #812FA0 70%, #E61F93 100%)',
-        boxShadow: '0 0 40px #E61F93, 0 0 20px #13228A inset',
+        background: `
+      linear-gradient(
+        140deg,
+        #050A30 0%,
+        #010F2A 20%,
+        #101D6B 50%,
+        #812FA0 75%,
+        #E61F93 100%
+      )
+    `,
+        backgroundSize: '100% 100%',
+        boxShadow: '0 0 40px #E61F93, 0 0 20px #101D6B inset',
       }}
     >
+      <div
+        className="absolute inset-0 z-[1] pointer-events-none"
+        style={{
+          backgroundImage: `url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABZUlEQVR42u3VQQqEMBAF0c74/3xHU2cRt0hK6SQ06lmM2wEVfA0HI0O8f1+B2PGAZFRUVFRUVFRUVFRUVFRUVFRUVFfbYf5AxHjcTf0ZqS8PUGS8n0CflSgfTV7BNFyg9qa9Q4SO+aRYTo95pFiOjXmkWEaPeaBYTo96plhOj3mkWE6PcaRYRo95pFiOjXmkWE6PcaRYRo95pFiOjXmkWE6PcaRYRo95pFiOjXmkWE6PcaRYRo95pFiOjXmkWE6PcaRYRo9x2qDJjXeEv+EdakKkL/MEYAAAAASUVORK5CYII=")`,
+          mixBlendMode: 'overlay',
+          opacity: 0.06
+        }}
+      />
+
+
       {/* 3D Background */}
       <div className="absolute inset-0">
         <Canvas camera={{ position: [0, 0, 10], fov: 60 }}>
@@ -126,6 +146,20 @@ export default function ComingSoon() {
 
 
         {/* Main heading */}
+        <style jsx global>{`
+          @keyframes gradientShift {
+            0% {
+              background-position: 0% 50%;
+            }
+            50% {
+              background-position: 100% 50%;
+            }
+            100% {
+              background-position: 0% 50%;
+            }
+          }
+        `}</style>
+
         <motion.h1
           initial={{ opacity: 0, y: 40, scale: 0.95 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -134,36 +168,29 @@ export default function ComingSoon() {
             ease: [0.22, 1, 0.36, 1],
             delay: 0.3
           }}
-          className="text-5xl sm:text-6xl md:text-8xl font-extrabold mb-8 tracking-tight"
+          className="text-5xl sm:text-6xl md:text-8xl font-black mb-10 tracking-tight leading-tight px-4 py-2 text-transparent bg-clip-text"
           style={{
-            fontFamily: "serif",
+            fontFamily: 'serif',
             backgroundImage: `
-            linear-gradient(
-              135deg,
-              #6B6FAD 0%,
-              #7C8BE0 20%,
-              #D681EF 50%,
-              #E61F93 70%,
-              #FF7FD1 90%,
-              #650065 100%
-            )
-    `,
-            backgroundClip: 'text',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            color: 'transparent',
+              linear-gradient(
+                270deg,
+                #8e2de2,
+                #a000ff,
+                #d100c9,
+                #ff00b8,
+                #ff3cac
+              )
+            `,
+            backgroundSize: '400% 400%',
+            animation: 'gradientShift 8s ease infinite',
             textShadow: `
-      0 1px 2px rgba(101, 0, 101, 0.25),
-      0 2px 3px rgba(230, 31, 147, 0.2),
-      0 3px 5px rgba(70, 0, 116, 0.15)
-    `,
-            lineHeight: '1.15',
-            paddingTop: '0.75em',
-            paddingBottom: '0.75em',
-            overflow: 'visible',
-            letterSpacing: '-0.03em',
-            textRendering: 'optimizeLegibility',
-            WebkitFontSmoothing: 'antialiased'
+              0 0 6px rgba(160, 0, 255, 0.8),
+              0 0 12px rgba(255, 0, 184, 0.6),
+              0 2px 20px rgba(255, 60, 172, 0.4)
+            `,
+            letterSpacing: '-0.015em',
+            lineHeight: '1.25',
+            overflow: 'visible'
           }}
         >
           Coming&nbsp;Soon
