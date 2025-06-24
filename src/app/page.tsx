@@ -136,7 +136,7 @@ export default function ComingSoon() {
           }}
           className="text-5xl sm:text-6xl md:text-8xl font-bold mb-6 tracking-tight"
           style={{
-            fontFamily: 'Sahitya, serif',
+            fontFamily: 'Maragsa, sans-serif',
             background:
               'linear-gradient(135deg, #44486D 0%, #4E59A7 35%, #A163B8 70%, #EC57AE 100%)',
             backgroundClip: 'text',
