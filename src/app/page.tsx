@@ -163,7 +163,7 @@ export default function ComingSoon() {
             fontFamily: 'Maragsa, sans-serif'
           }}
         >
-          Custom Invitations & Elegant Designs for Every Occasion
+          An exclusive design house for those who love differently
         </motion.p>
 
         {/* Email signup */}
