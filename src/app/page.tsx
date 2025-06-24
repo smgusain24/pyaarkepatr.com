@@ -127,31 +127,48 @@ export default function ComingSoon() {
 
         {/* Main heading */}
         <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 40, scale: 0.95 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{
-            duration: 0.8,
-            ease: [0.23, 1, 0.32, 1], // cubic-bezier for bounce-in
-            delay: 0.4
+            duration: 1,
+            ease: [0.22, 1, 0.36, 1],
+            delay: 0.3
           }}
-          className="text-5xl sm:text-6xl md:text-8xl font-bold mb-6 tracking-tight"
+          className="text-5xl sm:text-6xl md:text-8xl font-extrabold mb-8 tracking-tight"
           style={{
-            fontFamily: 'Maragsa, sans-serif',
-            background:
-              'linear-gradient(135deg, #44486D 0%, #4E59A7 35%, #A163B8 70%, #EC57AE 100%)',
+            fontFamily: "serif",
+            backgroundImage: `
+            linear-gradient(
+              135deg,
+              #6B6FAD 0%,
+              #7C8BE0 20%,
+              #D681EF 50%,
+              #E61F93 70%,
+              #FF7FD1 90%,
+              #650065 100%
+            )
+    `,
             backgroundClip: 'text',
             WebkitBackgroundClip: 'text',
-            color: 'transparent',
             WebkitTextFillColor: 'transparent',
-            textShadow: '0 0 15px rgba(236,87,174,0.4)',
-            lineHeight: '1.2',
-            paddingTop: '0.5em',
-            paddingBottom: '0.5em',
-            overflow: 'visible'
+            color: 'transparent',
+            textShadow: `
+      0 1px 2px rgba(101, 0, 101, 0.25),
+      0 2px 3px rgba(230, 31, 147, 0.2),
+      0 3px 5px rgba(70, 0, 116, 0.15)
+    `,
+            lineHeight: '1.15',
+            paddingTop: '0.75em',
+            paddingBottom: '0.75em',
+            overflow: 'visible',
+            letterSpacing: '-0.03em',
+            textRendering: 'optimizeLegibility',
+            WebkitFontSmoothing: 'antialiased'
           }}
         >
           Coming&nbsp;Soon
         </motion.h1>
+
 
 
         {/* Subtitle */}
