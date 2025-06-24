@@ -137,12 +137,13 @@ export default function ComingSoon() {
           className="text-5xl sm:text-6xl md:text-8xl font-bold mb-6 tracking-tight"
           style={{
             fontFamily: 'Sahitya, serif',
-            background: 'linear-gradient(90deg, #FFD700, #FFA500, #FF4500)',
+            background:
+              'linear-gradient(135deg, #44486D 0%, #4E59A7 35%, #A163B8 70%, #EC57AE 100%)',
             backgroundClip: 'text',
             WebkitBackgroundClip: 'text',
             color: 'transparent',
             WebkitTextFillColor: 'transparent',
-            textShadow: '0 0 15px rgba(255,165,0,0.4)',
+            textShadow: '0 0 15px rgba(236,87,174,0.4)',
             lineHeight: '1.2',
             paddingTop: '0.5em',
             paddingBottom: '0.5em',
