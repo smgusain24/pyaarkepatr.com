@@ -131,21 +131,26 @@ export default function ComingSoon() {
           animate={{ opacity: 1, y: 0 }}
           transition={{
             duration: 0.8,
-            ease: [0.23, 1, 0.32, 1],
+            ease: [0.23, 1, 0.32, 1], // cubic-bezier for bounce-in
             delay: 0.4
           }}
-          className="text-5xl sm:text-6xl md:text-8xl font-bold mb-6 tracking-tight text-white"
+          className="text-5xl sm:text-6xl md:text-8xl font-bold mb-6 tracking-tight"
           style={{
             fontFamily: 'Maragsa, sans-serif',
+            background:
+              'linear-gradient(135deg, #44486D 0%, #4E59A7 35%, #A163B8 70%, #EC57AE 100%)',
+            backgroundClip: 'text',
+            WebkitBackgroundClip: 'text',
+            color: 'transparent',
+            WebkitTextFillColor: 'transparent',
+            textShadow: '0 0 15px rgba(236,87,174,0.4)',
             lineHeight: '1.2',
             paddingTop: '0.5em',
-            paddingBottom: '0.5em'
+            paddingBottom: '0.5em',
+            overflow: 'visible'
           }}
         >
-          Coming
-          <span className="block bg-gradient-to-r from-purple-400 via-pink-400 to-indigo-400 bg-clip-text text-transparent">
-            Soon
-          </span>
+          Coming&nbsp;Soon
         </motion.h1>
 
 

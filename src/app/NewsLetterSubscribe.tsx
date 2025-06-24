@@ -64,7 +64,7 @@ export default function NewsLetterSubscribe() {
               type="submit"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-full font-semibold hover:from-purple-600 hover:to-pink-600 transition-all duration-300 shadow-lg hover:shadow-xl whitespace-nowrap"
+              className="px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-[#EC57AE]/50 via-[#A163B8]/50 to-[#4E59A7]/50 text-white/70 rounded-full font-semibold backdrop-blur-md border border-white/20 hover:opacity-90 transition-all duration-300 whitespace-nowrap"
             >
               Subscribe
             </motion.button>
