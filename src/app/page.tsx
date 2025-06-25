@@ -73,8 +73,8 @@ export default function ComingSoon() {
         className="min-h-screen flex items-center justify-center"
         style={{
           background:
-            'linear-gradient(135deg, #060B3D 0%, #13228A 35%, #812FA0 70%, #E61F93 100%)',
-          boxShadow: '0 0 40px #E61F93, 0 0 20px #13228A inset',
+            'linear-gradient(135deg, #050A30 0%, #101D6B 100%)',
+          boxShadow: '0 0 40px #101D6B, 0 0 20px #050A30 inset',
         }}
       >
         <div className="text-white text-xl">Loading...</div>
@@ -91,14 +91,11 @@ export default function ComingSoon() {
       linear-gradient(
         140deg,
         #050A30 0%,
-        #010F2A 20%,
-        #101D6B 50%,
-        #812FA0 75%,
-        #E61F93 100%
+        #101D6B 100%
       )
     `,
         backgroundSize: '100% 100%',
-        boxShadow: '0 0 40px #E61F93, 0 0 20px #101D6B inset',
+        boxShadow: '0 0 40px #101D6B, 0 0 20px #050A30 inset',
       }}
     >
       <div
@@ -168,33 +165,28 @@ export default function ComingSoon() {
             ease: [0.22, 1, 0.36, 1],
             delay: 0.3
           }}
-          className="text-5xl sm:text-6xl md:text-8xl font-black mb-10 tracking-tight leading-tight px-4 py-2 text-transparent bg-clip-text"
+          className="text-5xl sm:text-6xl md:text-8xl mb-10 leading-tight px-4 py-2 text-transparent bg-clip-text"
           style={{
-            fontFamily: 'serif',
-            backgroundImage: `
-              linear-gradient(
-                270deg,
-                #8e2de2,
-                #a000ff,
-                #d100c9,
-                #ff00b8,
-                #ff3cac
-              )
-            `,
+            fontFamily: 'Sahitya, serif',
+            fontWeight: 700,
+            backgroundImage: 'linear-gradient(90deg, #a855f7, #ec4899)',
             backgroundSize: '400% 400%',
             animation: 'gradientShift 8s ease infinite',
             textShadow: `
-              0 0 6px rgba(160, 0, 255, 0.8),
-              0 0 12px rgba(255, 0, 184, 0.6),
-              0 2px 20px rgba(255, 60, 172, 0.4)
+              0 0 6px rgba(168, 85, 247, 0.8),
+              0 0 12px rgba(236, 72, 153, 0.6),
+              0 2px 20px rgba(236, 72, 153, 0.4)
             `,
-            letterSpacing: '-0.015em',
-            lineHeight: '1.25',
+            letterSpacing: '0.015em',  // increased from negative
+            lineHeight: '1.2',
+            transform: 'scaleX(1.03)', // widen slightly
             overflow: 'visible'
           }}
         >
           Coming&nbsp;Soon
         </motion.h1>
+
+
 
 
 

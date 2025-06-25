@@ -34,6 +34,7 @@ body {
 }
 
 
+
 @font-face {
   font-family: 'Maragsa';
   src: url('/fonts/Maragsa.otf') format('opentype');
@@ -41,10 +42,18 @@ body {
   font-style: normal;
 }
 
+
+
 @font-face {
-  font-family: 'Sahitya';
-  src: url('/fonts/Sahitya.ttf') format('truetype');
-  font-weight: normal;
+  font-family: "Sahitya";
+  src: url("/fonts/Sahitya-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+.sahitya-bold {
+  font-family: "Sahitya", serif;
+  font-weight: 700;
   font-style: normal;
 }
 
