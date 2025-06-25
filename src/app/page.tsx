@@ -38,7 +38,6 @@ function Particles() {
     return arr
   }, [particleCount])
 
-  const opacities = useRef(new Float32Array(particleCount).fill(1))
 
   useFrame(({ clock }) => {
     if (pointsRef.current) {
@@ -55,13 +54,10 @@ function Particles() {
   return (
     <points ref={pointsRef}>
       <bufferGeometry>
-        {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
-        {/* @ts-ignore */}
         <bufferAttribute
           attach="attributes-position"
           args={[positions, 3]}
         />
-        {/* @ts-ignore */}
         <bufferAttribute
           attach="attributes-color"
           args={[colors, 3]}
