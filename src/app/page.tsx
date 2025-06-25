@@ -186,30 +186,34 @@ export default function ComingSoon() {
           }
         `}</style>
 
-        <motion.h1
-          initial={{ opacity: 0, y: 40, scale: 0.95 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{
-            duration: 1,
-            ease: [0.22, 1, 0.36, 1],
-            delay: 0.3
-          }}
-          className="text-[clamp(2.5rem,8vw,7rem)] mb-2 tracking-tight leading-tight px-4 py-2 text-transparent bg-clip-text"
-          style={{
-            fontFamily: '"Garamond", serif',
-            fontWeight: 700,
-            backgroundImage: 'linear-gradient(to right, #ec4899 20%, #a855f7 70%, #6366f1 90%)',
-            backgroundSize: '100% 100%',
-            backgroundRepeat: 'no-repeat',
-            letterSpacing: '0.01em',
-            lineHeight: '1.15',
-            transform: 'scaleX(1.03)',
-            overflow: 'visible',
-            textShadow: 'none'
-          }}
-        >
-          Coming&nbsp;Soon
-        </motion.h1>
+        <div className="w-full overflow-x-auto">
+
+          <motion.h1
+            initial={{ opacity: 0, y: 40, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{
+              duration: 1,
+              ease: [0.22, 1, 0.36, 1],
+              delay: 0.3
+            }}
+            className="text-[clamp(2.5rem,8vw,7rem)] mb-2 tracking-tight leading-tight px-6 py-2 text-transparent bg-clip-text whitespace-nowrap"
+            style={{
+              fontFamily: '"Garamond", serif',
+              fontWeight: 700,
+              backgroundImage: 'linear-gradient(to right, #ec4899 20%, #a855f7 70%, #6366f1 90%)',
+              backgroundSize: '100% 100%',
+              backgroundRepeat: 'no-repeat',
+              letterSpacing: '0.01em',
+              lineHeight: '1.15',
+              overflow: 'visible',
+              textShadow: 'none'
+            }}
+          >
+            Coming&nbsp;Soon
+          </motion.h1>
+
+        </div>
+
 
         {/* Subtitle */}
         <motion.p
