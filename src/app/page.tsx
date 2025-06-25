@@ -73,8 +73,8 @@ export default function ComingSoon() {
         className="min-h-screen flex items-center justify-center"
         style={{
           background:
-            'linear-gradient(135deg, #060B3D 0%, #13228A 100%)',
-          boxShadow: '0 0 40px #13228A, 0 0 20px #060B3D inset',
+            'linear-gradient(135deg, #050A30 0%, #101D6B 100%)',
+          boxShadow: '0 0 40px #101D6B, 0 0 20px #050A30 inset',
         }}
       >
         <div className="text-white text-xl">Loading...</div>
@@ -91,12 +91,11 @@ export default function ComingSoon() {
       linear-gradient(
         140deg,
         #050A30 0%,
-        #010F2A 50%,
-        #13228A 100%
+        #101D6B 100%
       )
     `,
         backgroundSize: '100% 100%',
-        boxShadow: '0 0 40px #13228A, 0 0 20px #010F2A inset',
+        boxShadow: '0 0 40px #101D6B, 0 0 20px #050A30 inset',
       }}
     >
       <div
@@ -168,7 +167,7 @@ export default function ComingSoon() {
           }}
           className="text-5xl sm:text-6xl md:text-8xl font-black mb-10 tracking-tight leading-tight px-4 py-2 text-transparent bg-clip-text"
           style={{
-            fontFamily: 'serif',
+            fontFamily: 'Sahitya, serif',
             backgroundImage: 'linear-gradient(90deg, #a855f7, #ec4899)',
             backgroundSize: '400% 400%',
             animation: 'gradientShift 8s ease infinite',
