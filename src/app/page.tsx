@@ -14,36 +14,63 @@ import NewsLetterSubscribe from './NewsLetterSubscribe'
 // Particle system
 function Particles() {
   const pointsRef = useRef<THREE.Points>(null)
-  const particleCount = 150
+  const particleCount = 400
 
   const positions = useMemo(() => {
     const arr = new Float32Array(particleCount * 3)
     for (let i = 0; i < particleCount; i++) {
-      arr[i * 3] = (Math.random() - 0.5) * 20
-      arr[i * 3 + 1] = (Math.random() - 0.5) * 20
-      arr[i * 3 + 2] = (Math.random() - 0.5) * 20
+      arr[i * 3] = (Math.random() - 0.5) * 40 // spread wider
+      arr[i * 3 + 1] = (Math.random() - 0.5) * 40
+      arr[i * 3 + 2] = (Math.random() - 0.5) * 40
     }
     return arr
   }, [particleCount])
 
-  useFrame((state) => {
+  const colors = useMemo(() => {
+    const arr = new Float32Array(particleCount * 3)
+    for (let i = 0; i < particleCount; i++) {
+      const hue = Math.random() > 0.8 ? 220 : 340 // bluish or pinkish
+      const color = new THREE.Color(`hsl(${hue}, 100%, ${70 + Math.random() * 20}%)`)
+      arr[i * 3] = color.r
+      arr[i * 3 + 1] = color.g
+      arr[i * 3 + 2] = color.b
+    }
+    return arr
+  }, [particleCount])
+
+
+  useFrame(({ clock }) => {
     if (pointsRef.current) {
-      pointsRef.current.rotation.x = state.clock.elapsedTime * 0.05
-      pointsRef.current.rotation.y = state.clock.elapsedTime * 0.1
+      const time = clock.getElapsedTime()
+      pointsRef.current.rotation.x = time * 0.02
+      pointsRef.current.rotation.y = time * 0.04
+
+      // Twinkling
+      const material = pointsRef.current.material as THREE.PointsMaterial
+      material.opacity = 0.6 + Math.sin(time * 0.5) * 0.3
     }
   })
 
   return (
     <points ref={pointsRef}>
       <bufferGeometry>
-        {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
-        {/* @ts-ignore */}
         <bufferAttribute
           attach="attributes-position"
           args={[positions, 3]}
         />
+        <bufferAttribute
+          attach="attributes-color"
+          args={[colors, 3]}
+        />
       </bufferGeometry>
-      <pointsMaterial size={0.02} color="#ffffff" transparent opacity={0.8} />
+      <pointsMaterial
+        size={0.04}
+        vertexColors
+        transparent
+        depthWrite={false}
+        opacity={0.9}
+        blending={THREE.AdditiveBlending}
+      />
     </points>
   )
 }
@@ -167,30 +194,23 @@ export default function ComingSoon() {
             ease: [0.22, 1, 0.36, 1],
             delay: 0.3
           }}
-          className="text-5xl sm:text-6xl md:text-8xl mb-10 leading-tight px-4 py-2 text-transparent bg-clip-text"
+          className="text-7xl sm:text-8xl md:text-[110px] md:text-9xl mb-2 tracking-tight leading-tight px-4 py-2 text-transparent bg-clip-text"
           style={{
-            fontFamily: 'Sahitya, serif',
+            fontFamily: '"Garamond", serif',
             fontWeight: 700,
-            backgroundImage: 'linear-gradient(90deg, #a855f7, #ec4899)',
-            backgroundSize: '400% 400%',
-            animation: 'gradientShift 8s ease infinite',
-            textShadow: `
-              0 0 6px rgba(168, 85, 247, 0.8),
-              0 0 12px rgba(236, 72, 153, 0.6),
-              0 2px 20px rgba(236, 72, 153, 0.4)
-            `,
-            letterSpacing: '0.015em',  // increased from negative
-            lineHeight: '1.2',
-            transform: 'scaleX(1.03)', // widen slightly
-            overflow: 'visible'
+            backgroundImage: 'linear-gradient(to right, #ec4899 20%, #a855f7 70%, #6366f1 90%)',
+            backgroundSize: '100% 100%',
+            backgroundRepeat: 'no-repeat',
+            WebkitTextStroke: '1.5px rgba(255, 255, 255, 0.25)',
+            letterSpacing: '0.01em',
+            lineHeight: '1.15',
+            transform: 'scaleX(1.03)',
+            overflow: 'visible',
+            textShadow: 'none'
           }}
         >
           Coming&nbsp;Soon
         </motion.h1>
-
-
-
-
 
         {/* Subtitle */}
         <motion.p
