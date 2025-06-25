@@ -165,9 +165,10 @@ export default function ComingSoon() {
             ease: [0.22, 1, 0.36, 1],
             delay: 0.3
           }}
-          className="text-5xl sm:text-6xl md:text-8xl font-black mb-10 tracking-tight leading-tight px-4 py-2 text-transparent bg-clip-text"
+          className="text-5xl sm:text-6xl md:text-8xl mb-10 leading-tight px-4 py-2 text-transparent bg-clip-text"
           style={{
             fontFamily: 'Sahitya, serif',
+            fontWeight: 700,
             backgroundImage: 'linear-gradient(90deg, #a855f7, #ec4899)',
             backgroundSize: '400% 400%',
             animation: 'gradientShift 8s ease infinite',
@@ -176,13 +177,16 @@ export default function ComingSoon() {
               0 0 12px rgba(236, 72, 153, 0.6),
               0 2px 20px rgba(236, 72, 153, 0.4)
             `,
-            letterSpacing: '-0.015em',
-            lineHeight: '1.25',
+            letterSpacing: '0.015em',  // increased from negative
+            lineHeight: '1.2',
+            transform: 'scaleX(1.03)', // widen slightly
             overflow: 'visible'
           }}
         >
           Coming&nbsp;Soon
         </motion.h1>
+
+
 
 
 
