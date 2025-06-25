@@ -7,6 +7,8 @@ import { Canvas, useFrame } from '@react-three/fiber'
 import { motion } from 'framer-motion'
 import NewsLetterSubscribe from './NewsLetterSubscribe'
 
+
+
 // Animated background spheres
 
 // Particle system
