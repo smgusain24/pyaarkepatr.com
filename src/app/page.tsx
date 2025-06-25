@@ -194,14 +194,13 @@ export default function ComingSoon() {
             ease: [0.22, 1, 0.36, 1],
             delay: 0.3
           }}
-          className="text-7xl sm:text-8xl md:text-[110px] md:text-9xl mb-2 tracking-tight leading-tight px-4 py-2 text-transparent bg-clip-text"
+          className="text-[clamp(2.5rem,8vw,7rem)] mb-2 tracking-tight leading-tight px-4 py-2 text-transparent bg-clip-text"
           style={{
             fontFamily: '"Garamond", serif',
             fontWeight: 700,
             backgroundImage: 'linear-gradient(to right, #ec4899 20%, #a855f7 70%, #6366f1 90%)',
             backgroundSize: '100% 100%',
             backgroundRepeat: 'no-repeat',
-            WebkitTextStroke: '1.5px rgba(255, 255, 255, 0.25)',
             letterSpacing: '0.01em',
             lineHeight: '1.15',
             transform: 'scaleX(1.03)',
@@ -228,24 +227,25 @@ export default function ComingSoon() {
         {/* Email signup */}
         <NewsLetterSubscribe />
 
+        {/* Email & Instagram Icons */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 2, duration: 0.8 }}
-          className="mt-16 flex space-x-6"
+          className="mt-12 flex flex-wrap justify-center gap-4 sm:gap-6"
         >
-          {/* Mail */}
+          {/* Email */}
           <motion.a
             href="mailto:contact@pyaarkepatr.com"
             whileHover={{ scale: 1.1, y: -2 }}
             whileTap={{ scale: 0.95 }}
-            className="w-12 h-12 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20 hover:bg-white/20 transition-all duration-300"
+            className="w-[clamp(2.5rem,10vw,3.5rem)] h-[clamp(2.5rem,10vw,3.5rem)] bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20 hover:bg-white/20 transition-all duration-300"
             aria-label="Email"
           >
             <img
               src="/icons/mail.svg"
               alt="Email"
-              className="w-6 h-6 object-contain text-white"
+              className="w-[50%] h-[50%] object-contain"
             />
           </motion.a>
 
@@ -256,17 +256,16 @@ export default function ComingSoon() {
             rel="noopener noreferrer"
             whileHover={{ scale: 1.1, y: -2 }}
             whileTap={{ scale: 0.95 }}
-            className="w-12 h-12 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20 hover:bg-white/20 transition-all duration-300"
+            className="w-[clamp(2.5rem,10vw,3.5rem)] h-[clamp(2.5rem,10vw,3.5rem)] bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20 hover:bg-white/20 transition-all duration-300"
             aria-label="Instagram"
           >
             <img
               src="/icons/instagram.svg"
               alt="Instagram"
-              className="w-6 h-6 object-contain text-white"
+              className="w-[50%] h-[50%] object-contain"
             />
           </motion.a>
         </motion.div>
-
 
 
         {/* Footer */}
@@ -274,12 +273,13 @@ export default function ComingSoon() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 2.5, duration: 0.8 }}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+          className="absolute bottom-6 left-1/2 transform -translate-x-1/2 text-center px-4"
         >
-          <p className="text-white/50 text-sm">
+          <p className="text-white/50 text-[clamp(0.6rem, 2vw, 0.875rem)] leading-snug">
             © 2025 Pyaar Ke Patr. All rights reserved.
           </p>
         </motion.div>
+
       </div>
     </div>
   )
