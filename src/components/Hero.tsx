@@ -61,6 +61,7 @@ export default function Hero() {
                     }}
                     className="mb-6 w-32 h-32 sm:w-40 sm:h-40 flex items-center justify-center"
                 >
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                         src="/logo/pkp.svg"
                         alt="Pyaar Ke Patr Logo"

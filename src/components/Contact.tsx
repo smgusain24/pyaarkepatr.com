@@ -70,7 +70,7 @@ ${formData.message}`
                         Get in Touch
                     </h2>
                     <p className="text-white/80 text-lg mb-8 leading-relaxed">
-                        Have a special occasion coming up? Let's create something beautiful together. Share your ideas and we'll bring them to life with our personalized designs.
+                        Have a special occasion coming up? Let&apos;s create something beautiful together. Share your ideas and we&apos;ll bring them to life with our personalized designs.
                     </p>
 
                     {/* Contact Methods */}

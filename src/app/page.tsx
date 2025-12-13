@@ -59,6 +59,7 @@ export default function Home() {
             {/* Brand */}
             <div>
               <div className="flex items-center gap-3 mb-4">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src="/logo/pkp.svg"
                   alt="Pyaar Ke Patr"
@@ -102,6 +103,7 @@ export default function Home() {
                   className="w-10 h-10 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center hover:bg-white/20 transition-colors"
                   aria-label="Email"
                 >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src="/icons/mail.svg" alt="Email" className="w-5 h-5" />
                 </a>
                 <a
@@ -111,6 +113,7 @@ export default function Home() {
                   className="w-10 h-10 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center hover:bg-white/20 transition-colors"
                   aria-label="Instagram"
                 >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src="/icons/instagram.svg" alt="Instagram" className="w-5 h-5" />
                 </a>
               </div>

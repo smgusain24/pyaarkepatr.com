@@ -50,6 +50,7 @@ export default function PortfolioGallery() {
                             {/* Image/Video Thumbnail */}
                             <div className="relative aspect-[4/5] overflow-hidden bg-gray-100">
                                 {item.type === 'image' ? (
+                                    /* eslint-disable-next-line @next/next/no-img-element */
                                     <img
                                         src={item.src}
                                         alt={item.title}
@@ -58,6 +59,7 @@ export default function PortfolioGallery() {
                                     />
                                 ) : (
                                     <div className="relative w-full h-full">
+                                        {/* eslint-disable-next-line @next/next/no-img-element */}
                                         <img
                                             src={item.thumbnail || '/images/portfolio/video-placeholder.jpg'}
                                             alt={item.title}

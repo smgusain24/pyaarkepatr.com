@@ -52,6 +52,7 @@ export default function Navigation() {
                                 whileHover={{ scale: 1.05 }}
                                 className="flex items-center space-x-2"
                             >
+                                {/* eslint-disable-next-line @next/next/no-img-element */}
                                 <img
                                     src="/logo/pkp.svg"
                                     alt="Pyaar Ke Patr"

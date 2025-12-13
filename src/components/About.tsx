@@ -16,6 +16,7 @@ export default function About() {
                     className="relative"
                 >
                     <div className="aspect-square rounded-lg overflow-hidden bg-white/10 backdrop-blur-md border border-white/20">
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
                         <img
                             src="/logo/pkp.svg"
                             alt="About Pyaar Ke Patr"

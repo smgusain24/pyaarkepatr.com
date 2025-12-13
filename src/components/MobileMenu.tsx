@@ -43,6 +43,7 @@ export default function MobileMenu({ isOpen, onClose, navLinks }: MobileMenuProp
                         <div className="flex flex-col h-full">
                             {/* Header */}
                             <div className="flex items-center justify-between p-6 border-b border-white/10">
+                                {/* eslint-disable-next-line @next/next/no-img-element */}
                                 <img
                                     src="/logo/pkp.svg"
                                     alt="Pyaar Ke Patr"
