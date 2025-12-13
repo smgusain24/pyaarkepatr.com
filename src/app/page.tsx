@@ -1,95 +1,15 @@
 'use client'
 
-import { useEffect, useRef, useState, useMemo } from 'react'
-import * as THREE from 'three'
-import { Canvas, useFrame } from '@react-three/fiber'
+import { useEffect, useState } from 'react'
+import Navigation from '@/components/Navigation'
+import Hero from '@/components/Hero'
+import PortfolioGallery from '@/components/PortfolioGallery'
+import Services from '@/components/Services'
+// import About from '@/components/About'
+import Testimonials from '@/components/Testimonials'
+import Contact from '@/components/Contact'
 
-import { motion } from 'framer-motion'
-import NewsLetterSubscribe from './NewsLetterSubscribe'
-
-
-
-// Animated background spheres
-
-// Particle system
-function Particles() {
-  const pointsRef = useRef<THREE.Points>(null)
-  const particleCount = 400
-
-  const positions = useMemo(() => {
-    const arr = new Float32Array(particleCount * 3)
-    for (let i = 0; i < particleCount; i++) {
-      arr[i * 3] = (Math.random() - 0.5) * 40 // spread wider
-      arr[i * 3 + 1] = (Math.random() - 0.5) * 40
-      arr[i * 3 + 2] = (Math.random() - 0.5) * 40
-    }
-    return arr
-  }, [particleCount])
-
-  const colors = useMemo(() => {
-    const arr = new Float32Array(particleCount * 3)
-    for (let i = 0; i < particleCount; i++) {
-      const hue = Math.random() > 0.8 ? 220 : 340 // bluish or pinkish
-      const color = new THREE.Color(`hsl(${hue}, 100%, ${70 + Math.random() * 20}%)`)
-      arr[i * 3] = color.r
-      arr[i * 3 + 1] = color.g
-      arr[i * 3 + 2] = color.b
-    }
-    return arr
-  }, [particleCount])
-
-
-  useFrame(({ clock }) => {
-    if (pointsRef.current) {
-      const time = clock.getElapsedTime()
-      pointsRef.current.rotation.x = time * 0.02
-      pointsRef.current.rotation.y = time * 0.04
-
-      // Twinkling
-      const material = pointsRef.current.material as THREE.PointsMaterial
-      material.opacity = 0.6 + Math.sin(time * 0.5) * 0.3
-    }
-  })
-
-  return (
-    <points ref={pointsRef}>
-      <bufferGeometry>
-        <bufferAttribute
-          attach="attributes-position"
-          args={[positions, 3]}
-        />
-        <bufferAttribute
-          attach="attributes-color"
-          args={[colors, 3]}
-        />
-      </bufferGeometry>
-      <pointsMaterial
-        size={0.04}
-        vertexColors
-        transparent
-        depthWrite={false}
-        opacity={0.9}
-        blending={THREE.AdditiveBlending}
-      />
-    </points>
-  )
-}
-
-// Main 3D Scene Component
-function Scene() {
-  return (
-    <>
-      <ambientLight intensity={0.3} />
-      <directionalLight position={[10, 10, 5]} intensity={0.5} />
-      <Particles />
-    </>
-  )
-}
-
-
-
-// Main component
-export default function ComingSoon() {
+export default function Home() {
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
@@ -101,9 +21,7 @@ export default function ComingSoon() {
       <div
         className="min-h-screen flex items-center justify-center"
         style={{
-          background:
-            'linear-gradient(135deg, #050A30 0%, #101D6B 100%)',
-          boxShadow: '0 0 40px #101D6B, 0 0 20px #050A30 inset',
+          background: 'linear-gradient(135deg, #050A30 0%, #101D6B 100%)',
         }}
       >
         <div className="text-white text-xl">Loading...</div>
@@ -112,175 +30,101 @@ export default function ComingSoon() {
   }
 
   return (
-    <div
+    <main className="relative">
+      {/* Navigation */}
+      <Navigation />
 
-      className="min-h-screen relative overflow-hidden"
-      style={{
-        background: `
-      linear-gradient(
-        140deg,
-        #050A30 0%,
-        #101D6B 100%
-      )
-    `,
-        backgroundSize: '100% 100%',
-        boxShadow: '0 0 40px #101D6B, 0 0 20px #050A30 inset',
-      }}
-    >
-      <div
-        className="absolute inset-0 z-[1] pointer-events-none"
-        style={{
-          backgroundImage: `url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABZUlEQVR42u3VQQqEMBAF0c74/3xHU2cRt0hK6SQ06lmM2wEVfA0HI0O8f1+B2PGAZFRUVFRUVFRUVFRUVFRUVFRUVFfbYf5AxHjcTf0ZqS8PUGS8n0CflSgfTV7BNFyg9qa9Q4SO+aRYTo95pFiOjXmkWEaPeaBYTo96plhOj3mkWE6PcaRYRo95pFiOjXmkWE6PcaRYRo95pFiOjXmkWE6PcaRYRo95pFiOjXmkWE6PcaRYRo95pFiOjXmkWE6PcaRYRo9x2qDJjXeEv+EdakKkL/MEYAAAAASUVORK5CYII=")`,
-          mixBlendMode: 'overlay',
-          opacity: 0.06
-        }}
-      />
+      {/* Hero Section */}
+      <Hero />
 
+      {/* Portfolio Gallery */}
+      <PortfolioGallery />
 
-      {/* 3D Background */}
-      <div className="absolute inset-0">
-        <Canvas camera={{ position: [0, 0, 10], fov: 60 }}>
-          <Scene />
-        </Canvas>
-      </div>
+      {/* Services */}
+      <Services />
 
-      {/* Overlay gradient */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-black/30" />
+      {/* About - Disabled for now */}
+      {/* <About /> */}
 
-      {/* Content */}
-      <div className="relative z-10 min-h-screen flex flex-col items-center justify-center px-4 text-center">
-        {/* Logo placeholder */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.7, y: -20, rotate: -5 }}
-          animate={{ opacity: 1, scale: 1, y: 0, rotate: 0 }}
-          transition={{
-            type: 'spring',
-            stiffness: 120,
-            damping: 12,
-            mass: 0.8,
-            delay: 0.2
-          }}
-          className="mb-8 w-44 h-44 sm:w-56 sm:h-56 flex items-center justify-center"
-        >
-          <img
-            src="/logo/pkp.svg"
-            alt="Pyaar Ke Patr Logo"
-            className="w-full h-full object-contain"
-          />
-        </motion.div>
+      {/* Testimonials */}
+      <Testimonials />
 
+      {/* Contact */}
+      <Contact />
 
+      {/* Footer */}
+      <footer className="bg-[#050A30] py-12 px-4">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+            {/* Brand */}
+            <div>
+              <div className="flex items-center gap-3 mb-4">
+                <img
+                  src="/logo/pkp.svg"
+                  alt="Pyaar Ke Patr"
+                  className="h-12 w-12 object-contain"
+                />
+                <span
+                  className="text-white font-bold text-xl"
+                  style={{ fontFamily: 'Garamond, serif' }}
+                >
+                  Pyaar Ke Patr
+                </span>
+              </div>
+              <p className="text-white/60 text-sm">
+                Crafting moments into memories through bespoke card and invitation designs.
+              </p>
+            </div>
 
-        {/* Main heading */}
-        <style jsx global>{`
-          @keyframes gradientShift {
-            0% {
-              background-position: 0% 50%;
-            }
-            50% {
-              background-position: 100% 50%;
-            }
-            100% {
-              background-position: 0% 50%;
-            }
-          }
-        `}</style>
+            {/* Quick Links */}
+            <div>
+              <h3 className="text-white font-semibold mb-4">Quick Links</h3>
+              <ul className="space-y-2">
+                {['Home', 'Portfolio', 'Services', 'Contact'].map((link) => (
+                  <li key={link}>
+                    <a
+                      href={`#${link.toLowerCase()}`}
+                      className="text-white/60 hover:text-white transition-colors text-sm"
+                    >
+                      {link}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-        <motion.h1
-          initial={{ opacity: 0, y: 40, scale: 0.95 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{
-            duration: 1,
-            ease: [0.22, 1, 0.36, 1],
-            delay: 0.3
-          }}
-          className="text-7xl sm:text-8xl md:text-[110px] md:text-9xl mb-2 tracking-tight leading-tight px-4 py-2 text-transparent bg-clip-text"
-          style={{
-            fontFamily: '"Garamond", serif',
-            fontWeight: 700,
-            backgroundImage: 'linear-gradient(to right, #ec4899 20%, #a855f7 70%, #6366f1 90%)',
-            backgroundSize: '100% 100%',
-            backgroundRepeat: 'no-repeat',
-            WebkitTextStroke: '1.5px rgba(255, 255, 255, 0.25)',
-            letterSpacing: '0.01em',
-            lineHeight: '1.15',
-            transform: 'scaleX(1.03)',
-            overflow: 'visible',
-            textShadow: 'none'
-          }}
-        >
-          Coming&nbsp;Soon
-        </motion.h1>
+            {/* Social */}
+            <div>
+              <h3 className="text-white font-semibold mb-4">Follow Us</h3>
+              <div className="flex gap-4">
+                <a
+                  href="mailto:contact@pyaarkepatr.com"
+                  className="w-10 h-10 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center hover:bg-white/20 transition-colors"
+                  aria-label="Email"
+                >
+                  <img src="/icons/mail.svg" alt="Email" className="w-5 h-5" />
+                </a>
+                <a
+                  href="https://instagram.com/pyaarkepatr"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center hover:bg-white/20 transition-colors"
+                  aria-label="Instagram"
+                >
+                  <img src="/icons/instagram.svg" alt="Instagram" className="w-5 h-5" />
+                </a>
+              </div>
+            </div>
+          </div>
 
-        {/* Subtitle */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          className="text-xl md:text-2xl text-white/80 mb-12 max-w-2xl leading-relaxed"
-          style={{
-            fontFamily: 'Maragsa, sans-serif'
-          }}
-        >
-          An exclusive design house for those who love differently
-        </motion.p>
-
-        {/* Email signup */}
-        <NewsLetterSubscribe />
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 2, duration: 0.8 }}
-          className="mt-16 flex space-x-6"
-        >
-          {/* Mail */}
-          <motion.a
-            href="mailto:contact@pyaarkepatr.com"
-            whileHover={{ scale: 1.1, y: -2 }}
-            whileTap={{ scale: 0.95 }}
-            className="w-12 h-12 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20 hover:bg-white/20 transition-all duration-300"
-            aria-label="Email"
-          >
-            <img
-              src="/icons/mail.svg"
-              alt="Email"
-              className="w-6 h-6 object-contain text-white"
-            />
-          </motion.a>
-
-          {/* Instagram */}
-          <motion.a
-            href="https://instagram.com/pyaarkepatr"
-            target="_blank"
-            rel="noopener noreferrer"
-            whileHover={{ scale: 1.1, y: -2 }}
-            whileTap={{ scale: 0.95 }}
-            className="w-12 h-12 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20 hover:bg-white/20 transition-all duration-300"
-            aria-label="Instagram"
-          >
-            <img
-              src="/icons/instagram.svg"
-              alt="Instagram"
-              className="w-6 h-6 object-contain text-white"
-            />
-          </motion.a>
-        </motion.div>
-
-
-
-        {/* Footer */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 2.5, duration: 0.8 }}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-        >
-          <p className="text-white/50 text-sm">
-            © 2025 Pyaar Ke Patr. All rights reserved.
-          </p>
-        </motion.div>
-      </div>
-    </div>
+          {/* Copyright */}
+          <div className="border-t border-white/10 pt-8 text-center">
+            <p className="text-white/50 text-sm">
+              © {new Date().getFullYear()} Pyaar Ke Patr. All rights reserved.
+            </p>
+          </div>
+        </div>
+      </footer>
+    </main>
   )
 }
